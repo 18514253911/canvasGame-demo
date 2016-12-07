@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>Tetris</title>
-	<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tetris</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/Board.js"></script>
+    <script src="js/Shape.js"></script>
+    <script src="js/digits.js"></script>
 </head>
+
 <body>
-	<div class="container">
-		<canvas id="board">Your browser doesn't support Canvas</canvas>
-	
-		<script src="js/script.js"></script>
-	</div>
+    <div class="container">
+        <canvas id="board">Your browser doesn't support Canvas</canvas>
+    </div>
+    <script>
+        //图片
+        var path = 'assets/images/blocks.png';
+        var image = new Image();
+        image.src = path;
+        var board = new Board("board", 13, 16, 32);
+        image.onload = function() {
+            board.image = image;
+            board.initGrid();
+            var shape = new Shape();
+            board.drawShape(shape, 3, 5);
+        }
+    </script>
 </body>
+
 </html>
